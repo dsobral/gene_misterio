@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>O Gene Mist&eacute;rio</title>
+
+    <!-- Use MaxCDN and external resources -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="pv.min.js"></script>
+
+
+    <!-- Custom styles for this template -->
+    <link href="theme.css" rel="stylesheet">
+
+</head>
+<body role="document">
+
+    <!-- Fixed navbar -->
+    <!-- Change theme.css to modify color and other stuff in Fixed navbar -->
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          <a class="navbar-brand" href="http://www.igc.gulbenkian.pt/"><img src="logo-IGC-2014-white.png"  alt="Descobre o Gene Mist&eacute;rio" width="100" height="30"></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="http://bioinformatics.igc.gulbenkian.pt">Unidade de Bioinform&aacute;tica</a></li>
+            <li><a href="http://bioinformatica-na-escola.org">Bioinform&aacute;tica na Escola</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+  
+<div class="container">
+      <div class="jumbotron">
+        <h1>À descoberta do Gene Mist&eacute;rio</h1>
+	<p><img src="gene_misterio.png" class="img-responsive" alt="Descobre o Gene Mist&eacute;rio"></p>
+      </div>
+
+      <div class="well sabia">
+	<img src="idead.png" class="img-responsive" width="50" height="50" alt="Sabia que">
+        <h2>Sabia que:</h2>
+	<ul class="list-group">
+	  <li class="list-group-item list-group-item-success">Os genes são herdados dos pais e determinam as características genéticas do indivíduo?</li>
+	  <li class="list-group-item list-group-item-info">Um gene é um segmento de DNA?</li>
+	  <li class="list-group-item list-group-item-success">O DNA é constituído por fiadas de quatro nucle&oacute;tidos diferentes, representados pelas letras A G T C, em que A &eacute; adenina, G guanina, T timina e C citosina?</li>
+  	  <li class="list-group-item list-group-item-info">O DNA tem informação para fazer proteínas, a qual é ditada pela ordem das 4 letras?</li>
+	  <li class="list-group-item list-group-item-success">As proteínas são fiadas de aminoácidos?</li>
+	  <li class="list-group-item list-group-item-info">Cada aminoácido é o resultado da descodificação de três nucleótidos (codão) do DNA?
+E que existem 20 aminoácidos diferentes?</li>
+	  <li class="list-group-item list-group-item-success">O DNA tem sinais que indicam onde começam e acabam as proteínas? E que o ATG (codão de
+iniciação) marca o início da proteína?</li>
+	  <li class="list-group-item list-group-item-info">Existem máquinas que permitem "ler" as moléculas de DNA?</li>
+	  <li class="list-group-item list-group-item-success">As máquinas mais recentes conseguem ler milhões de fragmentos de DNA simultaneamente?</li>
+	  <li class="list-group-item list-group-item-info">Graças a essas máquinas se consegue ler um genoma humano num só dia?</li>
+	</ul>
+      </div>
+           
+	<!-- Make an activity class?? Maybe playing with colors is enough -->
+      <div class="well activity" >
+	<img src="task_todo.png" id="atividade1" class="img-responsive" width="50" height="50" alt="Atividade">
+<h3>Atividade: Encontre o ATG na sequência mistério.</h3>
+<p>C C <span id="atg1">A T G</span> G T G G T G G T G <span id="atg2">A T G</span> A T C T T T G C G T A C T G C G T C T G C T G G G G A C C C T A C A C C T T C T T C G C A</p>
+<p><button type="button" class="btn btn-info" onclick="toggleATG()" data-toggle="collapse" data-target="#infoatg">Mostrar Solu&ccedil;&atilde;o</button></p>
+  <div id="infoatg" class="collapse">
+	<p></p>
+	<p>Como deve ter reparado, há dois ATG na sequência. Nem sempre é óbvio qual deles indica o início da proteína. Neste caso vamos usar o primeiro.</p>
+  </div>
+</div>
+
+      <div class="well">
+
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#infocodigo">	<h4>Quer saber mais sobre o código genético?</h4></button>
+  <div id="infocodigo" class="collapse">
+	<p></p>
+	<p>
+	Os genes codificam instruções para fazer proteínas. Mas como é que o fazem? As proteínas são
+	constituídas por sequências de aminoácidos, mais ou menos longas, tal como um colar feito de
+	missangas.</p>
+	<p>Existem 20 aminoácidos diferentes e a cada um é dado uma letra de código. Por exemplo a
+	metionina tem o código M, a Leucina L, a fenilalanina F, a prolina P, etc. </p>
+	<p>Um gene pode ser visto como uma lista de letras código para uma cadeia de aminoácidos: cada letra
+	é constituída por três bases de DNA (codão). A maior parte das bases do DNA codifica para um
+	aminoácido. Por exemplo, as letras TGC do DNA codificam para o aminoácido cisteína, enquanto que
+	as letras TGG codificam para o aminoácido triptofano.</p>
+	<p>O DNA é constituído por fiadas de quatro nucleótidos diferentes, representados pelas letras A G T C,
+	em que A é adenina, G guanina, T timina e C citosina. Com estas quatro letras podemos ter 4 x 4 x 4
+	= 64 combinações diferentes e cada uma pode ser usada para fazer um codão. Algumas destas 64
+	combinações codificam para o mesmo aminoácido. Por exemplo, GAA e GAG codificam ambos para
+	o aminoácido glutamato E.</p>
+	<p>O codão ATG, que codifica para a metionina (M), é muito importante porque significa o início de uma
+	proteína.</p>
+	<p>Os codões TAA, TGA e TAG, não codificam para qualquer aminoácido. São de extrema importância
+	para a célula, pois estão responsáveis por indicar onde deve parar a leitura da proteína que é
+	codificada a partir do DNA. Estes codões têm o nome de codões stop.</p>
+  </div>
+      </div>
+
+
+<div class="well activity">
+
+ <div class=table-responsive> 
+	<img src="task_todo.png" id="atividade2" class="img-responsive" width="50" height="50" alt="Atividade">
+	<table class=table> 
+	  <thead><h3>Atividade: Como descodificar o DNA?</h3><p>Três nucleótidos codificam para um aminoácido. Consegue preencher os quadrados vazios com o aminoácido correspondente, usando a roda do código genético abaixo?</p>  </thead> 
+	  <tbody style="center"> 
+		<tr> <th scope=row>Posição</th> <td>1</td> <td>2</td> <td>3</td> <td>4</td> <td>5</td> <td>6</td> <td>7</td> <td>8</td><td>9</td><td>10</td></tr> 
+		<tr> <th scope=row>Codão</th> <td>ATG</td> <td>GTG</td> <td>GTG</td> <td>GTG</td> <td>ATG</td> <td>ATC</td> <td>TTT</td> <td>GCG</td> <td>TAC</td> <td>TGC</td> </tr> 
+		<tr> <th scope=row>Aminoácido</th><td>M</td> <td><span class="codon" id="codon1">V</span></td> <td><span class="codon" id="codon2">V</span></td> <td><span class="codon" id="codon3">V</span></td> <td><span class="codon" id="codon4">M</span></td> <td><span class="codon" id="codon5">I</span></td> <td><span class="codon" id="codon6">F</span></td> <td><span class="codon" id="codon7">A</span></td> <td><span class="codon" id="codon8">Y</span></td> <td><span class="codon" id="codon9">C</span></td> </tr> 
+		<tr> <th scope=row></th><td></td> <td><button type="button" class="btn btn-xs btn-info" onclick="toggleCodon(1)">?</button></td> <td><button type="button" class="btn btn-xs btn-info" onclick="toggleCodon(2)">?</button></td> <td><button type="button" class="btn btn-xs btn-info" onclick="toggleCodon(3)">?</button></td> <td><button type="button" class="btn btn-xs btn-info" onclick="toggleCodon(4)">?</button></td> <td><button type="button" class="btn btn-xs btn-info" onclick="toggleCodon(5)">?</button></td> <td><button type="button" class="btn btn-xs btn-info" onclick="toggleCodon(6)">?</button></td> <td><button type="button" class="btn btn-xs btn-info" onclick="toggleCodon(7)">?</button></td> <td><button type="button" class="btn btn-xs btn-info" onclick="toggleCodon(8)">?</button></td> <td><button type="button" class="btn btn-xs btn-info" onclick="toggleCodon(9)">?</button></td> </tr> 
+		<tr> <th scope=row></th><td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr> 
+
+
+		<tr> <th scope=row>Posição</th> <td>11</td> <td>12</td> <td>13</td> <td>14</td> <td>15</td> <td>16</td> <td>17</td> <td>18</td><td>19</td><td>20</td></tr> 
+		<tr> <th scope=row>Codão</th> <td>GTC</td> <td>TGC</td> <td>TGG</td> <td>GGA</td> <td>CCC</td> <td>TAC</td> <td>ACC</td> <td>TTC</td> <td>TTC</td> <td>GCA</td> </tr> 
+		<tr> <th scope=row>Aminoácido</th><td><span class="codon" id="codon10">V</span></td> <td><span class="codon" id="codon11">C</span></td> <td><span class="codon" id="codon12">W</span></td> <td><span class="codon" id="codon13">G</span></td> <td><span class="codon" id="codon14">P</span></td> <td><span class="codon" id="codon15">Y</span></td> <td><span class="codon" id="codon16">T</span></td> <td><span class="codon" id="codon17">F</span></td> <td><span class="codon" id="codon18">F</span></td> <td><span class="codon" id="codon19">A</span></td> </tr> 
+		<tr> <th scope=row></th><td><button type="button" class="btn btn-xs btn-info" onclick="toggleCodon(10)">?</button></td> <td><button type="button" class="btn btn-xs btn-info" onclick="toggleCodon(11)">?</button></td> <td><button type="button" class="btn btn-xs btn-info" onclick="toggleCodon(12)">?</button></td> <td><button type="button" class="btn btn-xs btn-info" onclick="toggleCodon(13)">?</button></td> <td><button type="button" class="btn btn-xs btn-info" onclick="toggleCodon(14)">?</button></td> <td><button type="button" class="btn btn-xs btn-info" onclick="toggleCodon(15)">?</button></td> <td><button type="button" class="btn btn-xs btn-info" onclick="toggleCodon(16)">?</button></td> <td><button type="button" class="btn btn-xs btn-info" onclick="toggleCodon(17)">?</button></td> <td><button type="button" class="btn btn-xs btn-info" onclick="toggleCodon(18)">?</button></td> <td><button type="button" class="btn btn-xs btn-info" onclick="toggleCodon(19)">?</button></td> </tr> 
+	  </tbody> 
+	</table> 
+</div> 
+     </div>
+
+<!-- class info?? -->
+ <div class="well">
+	<p align="center"><img src="dna_wheel_eg.png" class="img-responsive" alt="Roda de Tradu&ccedil;&atilde;o de DNA" width="400" height="400"></p>
+<p>Como usar a roda: Se, por exemplo, quiser saber qual o aminoácido codificado pela sequência de DNA
+TTG, terá de começar no centro da roda, na posição T, e encontrar o T e o G adjacentes, (seta). O anel
+exterior indicar-lhe-á a letra L, e esta é o código correspondente ao aminoácido leucina. 
+Na imagem pode ver o exemplo do codão de iniciação ATG, que corresponde ao aminoácido Metionina (M)</p>
+
+     </div>
+
+
+      <div class="well">
+
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#infoprots">	<h4>Quer saber mais sobre a síntese das proteínas?</h4></button>
+  <div id="infoprots" class="collapse">
+	<p> </p>
+	<p> Ficou a saber como uma sequência de DNA codifica para proteínas e como se lê o código genético.
+No final das tarefas propostas e se tiver tempo, pode consultar o seguinte <a href="http://tinyurl.com/s-ntese-proteica" target="_blank">endereço da Internet </a>para ficar a saber mais sobre como são feitas as proteínas. </p>		
+      </div>
+       </div>
+
+      <div class="well sabia">
+	<img src="idead.png" class="img-responsive" width="50" height="50" alt="Sabia que">
+        <h2>Sabia que:</h2>
+	<ul class="list-group">
+	  <li class="list-group-item list-group-item-success">Existem bases de dados onde as sequências de DNA e de proteínas estão guardadas?</li>
+  	  <li class="list-group-item list-group-item-info">A maioria das bases de dados biológicos podem ser consultadas livremente através da Internet?</li>
+  	  <li class="list-group-item list-group-item-success">É possível comparar as nossas sequências em estudo com as que já estão depositadas em bases de dados?</li>
+  	  <li class="list-group-item list-group-item-info">Os cientistas que desenvolvem os programas que permitem recolher, armazenar e analisar os dados biológicos chamam-se bioinformáticos?</li>
+	</ul>
+      </div>
+
+
+<div class="well">
+	
+  <p>Qual será a proteína que contém os aminoácidos que identificou?</p>
+  <p>Vamos usar um programa chamado <a href="https://pt.wikipedia.org/wiki/BLAST" target="_blank">Blast</a> para tentar descobrir.</p>
+  <p>Veja as instruções abaixo sobre como fazer.</p>
+  
+   <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#blastinstr">	<h4>Mostrar Instruções</h4></button>
+  <p></p>
+  <!-- <div id="blastpage" class="collapse in"> -->
+  <div id="blastinstr" class="collapse">
+	<p>Entre na página do <a href="http://www.ebi.ac.uk/Tools/sss/ncbiblast/" target="_blank">programa Blast</a>:</p>
+	<p>Pode também usar a secção mais abaixo nesta página (carregue em Mostrar Página do Blast)</p>
+	<p><img src="instrucoes_1.png" class="img-responsive"  alt="Instruções"></p>
+	<p></p>
+	<p>Após carregar em Submit, espere um pouco. O Blast leva algum tempo a dar o resultado da pesquisa...</p>
+	<p>Entretanto, no ecrã do seu computador, vai ter esta mensagem de espera:</p>
+	<p><img src="instrucoes_2.png" class="img-responsive" alt="Instruções"></p>
+	<p></p>
+	<p>Ao fim de um tempo, o Blast terminou a pesquisa.</p>
+	<p>Vá descendo na página até encontrar uma tabela com o seguinte aspeto:</p>
+	<p><img src="instrucoes_3.png" class="img-responsive" alt="Instruções"></p>
+	<p></p>
+	<p>Não se preocupe se à primeira vista esta tabela lhe parecer difícil:</p>
+	<ul class="list-group">
+		<li> No lado esquerdo da tabela, a coluna DB:ID mostra os nomes de cada uma das proteínas
+encontradas na base de dados.</li>
+		<li> A seguir, a coluna Source mostra uma pequena descrição de cada uma das proteínas.</li>
+		<li> No lado direito e em frente de cada nome/descrição das proteínas, aparecem uns números que
+indicam o grau de semelhança encontrado entre cada proteína da base de dados e a sua proteína
+mistério.</li>
+		<li> O primeiro resultado da lista é a proteína mistério.</li>
+	</ul>
+ </div>
+
+ 
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#blastpage">	<h4>Mostrar Página do Blast</h4></button>
+  <p></p>
+  <!-- <div id="blastpage" class="collapse in"> -->
+  <div id="blastpage" class="collapse">
+
+<iframe id="myappbl" name="myappbl" src="http://www.ebi.ac.uk/Tools/sss/ncbiblast/" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="800" scrolling="auto"></iframe>
+
+ </div>
+ </div>
+ 
+      <div class="well activity" >
+	  	<img src="task_todo.png" id="atividade3" class="img-responsive" width="50" height="50" alt="Atividade">
+<p><h3>Atividade: Qual o nome da proteína mistério?</h3></p>
+<p><button type="button" class="btn btn-info" data-toggle="collapse" data-target="#solativi3" onclick="toggleAtivi(3)">Mostrar Solu&ccedil;&atilde;o</button></p>
+
+  <div id="solativi3" class="collapse">
+	Long-wave-sensitive opsin 1, ou OPSR_HUMAN.
+ </div>
+</div>
+
+<div class="well">
+	
+  <p>Siga o link <a href="http://www.uniprot.org/uniprot/OPSR_HUMAN" target="_blank">SP:OPSR_HUMAN</a> na tabela de resultados do blast.</p>
+
+  <p>O link leva-o para uma base de dados de proteínas chamada Swiss-Prot</p>
+  
+	<p> A Swiss-Prot é como se fosse uma enciclopédia de proteínas.</p>
+	<p> Toda a informação sobre cada uma das proteínas, cuja sequência de aminoácidos é já conhecida, é guardada aqui.</p>
+	<p> Uma entrada na Swiss-Prot tem o seguinte aspecto:</p>
+
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#swisspage">	<h4>Mostrar Página do Link</h4></button>
+  <p></p>
+  <!-- <div id="blastpage" class="collapse in"> -->
+  <div id="swisspage" class="collapse">
+
+<iframe id="myappbl" name="myappbl" src="http://www.uniprot.org/uniprot/OPSR_HUMAN" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="800" scrolling="auto"></iframe>
+
+ </div>
+
+
+
+ </div>
+
+
+	<!-- Make an activity class?? Maybe playing with colors is enough -->
+      <div class="well activity">
+	  	  	<img src="task_todo.png" id="atividade4" class="img-responsive" width="50" height="50" alt="Atividade">
+<p><h3>Atividade: Identifique a seguinte informação da Swiss-Prot:</h3></p>
+<p><h3>O número de identificação da proteína na Swiss-Prot?</h3></p>
+  <div id="swissat1" class="collapse">
+	P04000 (OPSR_HUMAN)
+   </div>
+<p><h3>O organismo a que pertence esta proteína?</h3></p>
+  <div id="swissat2" class="collapse">
+	Homo sapiens (Humano)
+   </div>
+<p><h3>O nome do gene mistério?</h3></p>
+  <div id="swissat3" class="collapse">
+	OPN1LW
+   </div>
+   <p></p>
+<p><button type="button" class="btn btn-info" data-toggle="collapse" data-target="#swissat1,#swissat2,#swissat3" onclick="toggleAtivi(4)">Mostrar Solu&ccedil;&atilde;o</button></p>
+</div>
+
+      <div class="well sabia">
+	<img src="idead.png" class="img-responsive" width="50" height="50" alt="Sabia que">
+        <h2>Sabia que:</h2>
+	<ul class="list-group">
+	  <li class="list-group-item list-group-item-success">A sequência completa do Genoma Humano foi divulgada em Abril de 2003?</li>
+  	  <li class="list-group-item list-group-item-info">O genoma humano tem cerca de 3 mil milhões de nucleótidos?</li>
+  	  <li class="list-group-item list-group-item-success">O DNA humano tem informação para cerca de 25 mil genes?</li>
+	</ul>
+      </div>
+
+
+<div class="well">
+
+
+	<p>Procure informação sobre o gene mistério na seguinte página:</p>	
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#chrpage">	<h4>Mostrar Página</h4></button>
+  <p></p>
+  <!-- <div id="chrpage" class="collapse in"> -->
+  <div id="chrpage" class="collapse">
+<iframe id="myappchr" name="myappchr" src="http://www.ncbi.nlm.nih.gov/projects/mapview/map_search.cgi?taxid=9606&query=OPN1LW&qchr=&strain=All" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="800" scrolling="auto"></iframe>
+ </div>
+ </div>
+
+
+	<!-- Make an activity class?? Maybe playing with colors is enough -->
+      <div class="well activity" style="background-color: rgb(222, 205, 203);">
+	  <img src="task_todo.png" id="atividade5" class="img-responsive" width="50" height="50" alt="Atividade">
+	  <p><h3>Atividade: Identifique a seguinte informação:</h3></p>
+	  <p><h3> Em que cromossoma se localiza o gene mistério?</h3></p>
+	    <div id="chrat1" class="collapse">
+		Cromossoma X
+		</div>
+<p><h3>Quantos pares de cromossomas tem cada célula humana?</h3></p>
+	    <div id="chrat2" class="collapse">
+		23 pares. 22 pares de cromossomas somáticos mais o par especial de cromossomas sexuais XY.
+		</div>
+		<p></p>
+<p><button type="button" class="btn btn-info"  data-toggle="collapse" data-target="#chrat1,#chrat2" onclick="toggleAtivi(5)">Mostrar Solu&ccedil;&atilde;o</button></p>
+</div>
+
+
+      <div class="well">
+
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#infocroms">	<h4>Quer saber mais sobre cromossomas?</h4></button>
+  <div id="infocroms" class="collapse">
+	<p> </p>
+	<p>Um cromossoma não é mais do que uma longa molécula de DNA associada a proteínas. </p>		
+	<p>Cada espécie tem um número específico de cromossomas. </p>	
+	<p>Herdámos um conjunto de cromossomas do nosso pai e outro da nossa mãe e portanto temos dois
+conjuntos.</p>
+	<p>Os cromossomas foram numerados de acordo como seu tamanho, sendo o cromossoma 1 o maior
+de todos. Isto só não se verifica em dois cromosomas especiais, chamados X e Y, que determinam o
+nosso sexo. </p>
+	<p>Os rapazes herdaram o cromossoma X da mãe e o Y do pai. As raparigas herdaram um cromossoma
+X da mãe e outro do pai.</p>
+      </div>
+       </div>
+
+
+      <div class="well sabia">
+	<img src="idead.png" class="img-responsive" width="50" height="50" alt="Sabia que">
+        <h2>Sabia que:</h2>
+	<ul class="list-group">
+	  <li class="list-group-item list-group-item-success">A função de uma proteína está associada à sua configuração (estrutura terciária)?</li>
+  	  <li class="list-group-item list-group-item-info">A mutação num gene pode alterar a configuração e a proteína perder a função??</li>
+  	  <li class="list-group-item list-group-item-success">A configuração é determinada pela ordem dos aminoáciods ao longo da proteína?</li>
+	</ul>
+      </div>
+
+
+      <div class="well">
+  
+  <p><button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gl"  onclick="loadpdb()">	<h4>Veja a Proteína Mistério em 3D</h4></button></p>
+	  <p><div id="gl" class="collapse container"></div></p>
+  
+  <p><button type="button" class="btn btn-info" data-toggle="collapse" data-target="#infoprotstruct">	<h4>Quer saber mais sobre a estrutura das proteínas?</h4></button></p>
+  <div id="infoprotstruct" class="collapse">
+	<p></p>
+	<p> As longas cadeias de aminoácidos codificadas pelos genes podem dobrar-se em diferentes tipos de
+configurações como, por exemplo, cadeias em hélices (alpha helices) ou cadeias pregueadas (beta
+sheets).</p>
+	<p>Isto é possível porque cada aminoácido tem propriedades fisico-químicas diferentes.</p>
+<p>Alguns têm carga eléctrica e, por exemplo, o aminoácido glutamato que tem carga negativa, é
+atraído pelo aminoácido de carga positiva, como a lisina. Outros, como a leucina e valina, são
+repelidos pela água (hidrofóbicos) e preferem ficar no interior das proteínas.</p>
+	<p>Resumindo, proteínas com sequências de aminoácidos diferentes originam configurações
+diferentes.</p>
+  </div>	
+      </div>
+
+
+</body>
+
+     <script language="javascript" type="text/javascript">
+         <!--
+		 
+		    var viewer = pv.Viewer(document.getElementById('gl'), 
+                           { quality : 'medium', width: '600', height : '600',
+                             antialias : true, outline : true});		
+							 
+            function toggleATG() {
+		var div = document.getElementById("atg1");
+		if(div.style.fontWeight=="bold"){
+			div.style.fontWeight="normal";
+			div.style.fontSize="14px";
+			div = document.getElementById("atg2");
+			div.style.fontWeight="normal";
+			div.style.fontSize="14px";
+			div = document.getElementById("atividade1");
+			div.src="task_todo.png";
+		} else {
+			div.style.fontWeight="bold";
+			div.style.fontSize="18px";
+			div = document.getElementById("atg2");
+			div.style.fontWeight="bold";
+			div.style.fontSize="18px";
+			div = document.getElementById("atividade1");
+			div.src="task_done.png";
+		}
+	    }
+
+	    function toggleCodon(number) {
+		var div = document.getElementById("codon".concat(number));
+
+		if(div.style.visibility=="visible") {
+			div.style.visibility="hidden";
+		} else {
+			div.style.visibility="visible";
+		}
+
+		var count = 0;
+		for (i = 1; i <=19; i++) {
+		    div = document.getElementById("codon".concat(i));
+		    if(div.style.visibility=="visible"){ count = count + 1; }
+		}
+		div = document.getElementById("atividade2");
+		if(count==19){
+			div.src="task_done.png";
+		} else {
+			div.src="task_todo.png";
+		}
+	    }
+
+		function toggleAtivi(number) {
+			var div = document.getElementById("atividade".concat(number));
+			if(div.src.includes("task_done.png")){
+				div.src="task_todo.png";
+			} else {
+				div.src="task_done.png";
+			}
+		}
+		
+		function preset() {
+			viewer.clear();
+			var ligand = structure.select({rnames : ['RVP', 'SAH']});
+			viewer.ballsAndSticks('ligand', ligand);
+			viewer.cartoon('protein', structure);
+		}
+		
+		function loadpdb() {
+							 
+			var xhr = new XMLHttpRequest();
+			//xhr.open('GET', 'http://files.rcsb.org/download/1R6A.pdb');
+			xhr.open('GET', '1KPX.pdb');
+			//xhr.open('GET', 'http://bioinformatica-na-escola.org/media/txt/pesquisa4/1KPX.pdb.txt');
+	  
+			xhr.setRequestHeader('Content-type', 'application/x-pdb');
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState == 4) {
+					structure = pv.io.pdb(xhr.responseText);
+					preset();
+					viewer.centerOn(structure);
+				}
+			}
+			xhr.send();
+		}
+		
+         //-->
+    </script>
+
+</html>

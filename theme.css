@@ -1,0 +1,74 @@
+body {
+  padding-top: 70px;
+  padding-bottom: 30px;
+}
+
+
+.activity {
+	background-color: rgb(222, 205, 203);
+}
+
+.activity img {
+  float: left;
+  width: 50px;
+  height: 50px;
+}
+
+.activity h3 {
+  position: relative;
+  top: 0px;
+  left: 10px;
+}
+
+.theme-showcase > p > .btn {
+  margin: 5px 0;
+}
+
+.theme-showcase .navbar .container {
+  width: auto;
+}
+
+.table td {
+   text-align: center;   
+}
+
+.embed-container { 
+  position: relative; 
+  padding-bottom: 100%; 
+  height: 0; 
+  overflow: hidden; 
+  max-width: 100%; 
+  min-height: 100%; 
+} 
+
+.embed-container iframe, .embed-container object, .embed-container embed { 
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%; 
+}
+
+.sabia img {
+  float: left;
+  width: 50px;
+  height: 50px;
+}
+
+.sabia h2 {
+  position: relative;
+  top: -18px;
+  left: 10px;
+}
+
+.codon {
+  visibility: hidden;
+}
+
+/*
+#gl {
+width: 600px;
+height: 600px;
+overflow: auto
+}
+*/
